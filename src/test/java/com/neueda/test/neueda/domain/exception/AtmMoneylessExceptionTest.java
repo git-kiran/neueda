@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AtmMoneylessExceptionTest {
     @Test
     public void testUserException() {
-        try{
+        try {
             throwAtmMoneylessExceptionTest();
         } catch (Exception exception) {
             assertEquals("Hello User, Entered amount is more than the ATM capacity, Please visit another ATM", exception.getMessage());

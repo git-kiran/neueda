@@ -38,7 +38,7 @@ public class WithdrawService {
         computeMinimumDispense(withdrawRequest);
 
         if (withdrawRequest.getWithdrawAmount() <= ATM.getAtm_Balance()) {
-            if ((withdrawRequest.getWithdrawAmount() < 0 && withdrawRequest.getWithdrawAmount() <= (account.getOpenBalance() + account.getOverDraft())) || (withdrawRequest.getWithdrawAmount() <= account.getOpenBalance() || (withdrawRequest.getWithdrawAmount() > account.getOpenBalance() && withdrawRequest.getWithdrawAmount() <= (account.getOpenBalance() + account.getOverDraft())))) {
+            if ((withdrawRequest.getWithdrawAmount() < 0 && withdrawRequest.getWithdrawAmount() <= (account.getOpenBalance() + account.getOverDraft())) || (withdrawRequest.getWithdrawAmount() <= account.getOpenBalance()) || (withdrawRequest.getWithdrawAmount() > account.getOpenBalance() && withdrawRequest.getWithdrawAmount() <= (account.getOpenBalance() + account.getOverDraft()))) {
                 account.setOpenBalance(account.getOpenBalance() - withdrawRequest.getWithdrawAmount());
                 ATM.setAtm_Balance(ATM.getAtm_Balance() - withdrawRequest.getWithdrawAmount());
                 withdrawResponse.setReturnAmount(withdrawRequest.getWithdrawAmount());
@@ -51,30 +51,29 @@ public class WithdrawService {
     }
 
 
-    public void computeMinimumDispense(WithdrawRequest withdrawRequest){
+    public void computeMinimumDispense(WithdrawRequest withdrawRequest) {
         int withdrawAmount = withdrawRequest.getWithdrawAmount();
         int[] noteValues = ATM.getNoteValues();
         int[] noteCount = ATM.getNoteCounts();
         int[] tmpCount = noteCount.clone();
 
         int noteCountholder[] = new int[noteCount.length];
-        int modHandler=0;
-        for(int i=0;i<noteValues.length && withdrawAmount!=0; i++)
-        {
-            if(withdrawAmount>=noteValues[i]) {
-                if(withdrawAmount/noteValues[i] <= tmpCount[i]) {
+        int modHandler = 0;
+        for (int i = 0; i < noteValues.length && withdrawAmount != 0; i++) {
+            if (withdrawAmount >= noteValues[i]) {
+                if (withdrawAmount / noteValues[i] <= tmpCount[i]) {
                     noteCountholder[i] = withdrawAmount / noteValues[i];
                     tmpCount[i] -= withdrawAmount / noteValues[i];
-                    withdrawAmount=withdrawAmount%noteValues[i];
+                    withdrawAmount = withdrawAmount % noteValues[i];
                 } else {
                     noteCountholder[i] = tmpCount[i];
-                    modHandler = withdrawAmount%noteValues[i];
-                    withdrawAmount = (withdrawAmount/noteValues[i] - tmpCount[i]) * noteValues[i] + modHandler;
+                    modHandler = withdrawAmount % noteValues[i];
+                    withdrawAmount = (withdrawAmount / noteValues[i] - tmpCount[i]) * noteValues[i] + modHandler;
                     tmpCount[i] -= tmpCount[i];
                 }
             }
         }
-        if(withdrawAmount > 0) {
+        if (withdrawAmount > 0) {
             throw new DispenseExactAmountException("Hello User, Sorry!!! we could not dispense the exact amount you requested due to shortage of notes in the ATM machine");
         }
         noteCount = tmpCount;

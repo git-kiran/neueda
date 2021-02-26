@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DispenseExactAmountExceptionTest {
     @Test
     public void testUserException() {
-        try{
+        try {
             throwDispenseExactAmountExceptionTest();
         } catch (Exception exception) {
             assertEquals("Hello User, Sorry!!! we could not dispense the exact amount you requested due to shortage of notes in the ATM machine", exception.getMessage());

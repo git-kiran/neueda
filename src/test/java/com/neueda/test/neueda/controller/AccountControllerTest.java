@@ -23,9 +23,11 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import static org.mockito.BDDMockito.given;
+
 @WebMvcTest(AccountController.class)
 @ActiveProfiles("test")
 @AutoConfigureJsonTesters

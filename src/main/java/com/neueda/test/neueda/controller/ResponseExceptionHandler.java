@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 @Slf4j
-@SuppressWarnings({"unchecked","rawtypes"})
+@SuppressWarnings({"unchecked", "rawtypes"})
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -26,52 +26,52 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
         this.messageSource = messageSource;
     }
 
-    @ExceptionHandler({ PinInvalidException.class })
+    @ExceptionHandler({PinInvalidException.class})
     public ResponseEntity<Object> handlePinInvalidException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler({ AccountNumberNotFoundException.class })
+    @ExceptionHandler({AccountNumberNotFoundException.class})
     public ResponseEntity<Object> handleAccountNumberNotFoundException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler({ AtmMoneylessException.class })
+    @ExceptionHandler({AtmMoneylessException.class})
     public ResponseEntity<Object> handleAtmMoneylessException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler({ MultiplesOfFiveException.class })
+    @ExceptionHandler({MultiplesOfFiveException.class})
     public ResponseEntity<Object> handleMultipleOfFiveException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler({ AccountBalanceException.class })
+    @ExceptionHandler({AccountBalanceException.class})
     public ResponseEntity<Object> handleAccountBalanceException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler({ DispenseExactAmountException.class })
+    @ExceptionHandler({DispenseExactAmountException.class})
     public ResponseEntity<Object> handleDispenseExactAmountException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
-    @ExceptionHandler({ InternalErrorException.class })
+    @ExceptionHandler({InternalErrorException.class})
     public ResponseEntity<Object> handleInternalErrorException(
             Exception ex, WebRequest request) {
-        return new ResponseEntity<Object>( ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
+        return new ResponseEntity<Object>(ex.getMessage(), new HttpHeaders(), HttpStatus.FORBIDDEN);
     }
 
     @Override
     public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                        HttpHeaders httpHeaders, HttpStatus status, WebRequest request) {
+                                                               HttpHeaders httpHeaders, HttpStatus status, WebRequest request) {
 
-        return  new ResponseEntity<>(ex.getMessage(), httpHeaders, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ex.getMessage(), httpHeaders, HttpStatus.BAD_REQUEST);
     }
 }

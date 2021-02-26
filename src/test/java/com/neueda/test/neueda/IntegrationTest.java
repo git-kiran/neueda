@@ -32,7 +32,7 @@ public class IntegrationTest {
     @Test
     public void handleAccountNumberNotFoundRequest() {
 
-        AccountRequest accountRequest =  new AccountRequest();
+        AccountRequest accountRequest = new AccountRequest();
         accountRequest.setAccountNumber("1234");
         accountRequest.setPin(1234);
 
@@ -44,7 +44,7 @@ public class IntegrationTest {
     @Test
     public void handlePinInvalidRequest() {
 
-        AccountRequest accountRequest =  new AccountRequest();
+        AccountRequest accountRequest = new AccountRequest();
         accountRequest.setAccountNumber("123456789");
         accountRequest.setPin(123);
 
@@ -106,7 +106,7 @@ public class IntegrationTest {
 
     @Test
     public void getBalanceRequest() {
-        AccountRequest accountRequest =  new AccountRequest();
+        AccountRequest accountRequest = new AccountRequest();
         accountRequest.setAccountNumber("123456789");
         accountRequest.setPin(1234);
 

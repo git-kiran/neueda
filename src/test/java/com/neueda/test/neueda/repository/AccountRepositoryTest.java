@@ -27,9 +27,9 @@ public class AccountRepositoryTest {
         account.setOverDraft(500);
         entityManager.persist(account);
         Account account1 = accountRepository.findByAccountNumber(account.getAccountNumber());
-        assertEquals(account.getPin(),account1.getPin());
-        assertEquals(account.getOpenBalance(),account1.getOpenBalance());
-        assertEquals(account.getOverDraft(),account1.getOverDraft());
+        assertEquals(account.getPin(), account1.getPin());
+        assertEquals(account.getOpenBalance(), account1.getOpenBalance());
+        assertEquals(account.getOverDraft(), account1.getOverDraft());
     }
 
     @Test
@@ -42,8 +42,8 @@ public class AccountRepositoryTest {
         entityManager.persist(account);
         account.setOpenBalance(100);
         Account account1 = accountRepository.save(account);
-        assertEquals(account.getPin(),account1.getPin());
-        assertEquals(account.getOpenBalance(),account1.getOpenBalance());
-        assertEquals(account.getOverDraft(),account1.getOverDraft());
+        assertEquals(account.getPin(), account1.getPin());
+        assertEquals(account.getOpenBalance(), account1.getOpenBalance());
+        assertEquals(account.getOverDraft(), account1.getOverDraft());
     }
 }

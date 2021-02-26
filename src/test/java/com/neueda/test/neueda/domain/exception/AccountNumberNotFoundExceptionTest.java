@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AccountNumberNotFoundExceptionTest {
     @Test
     public void testUserException() {
-        try{
+        try {
             throwAccountNumberNotFoundException();
         } catch (Exception exception) {
             assertEquals("AccountNumber not found", exception.getMessage());

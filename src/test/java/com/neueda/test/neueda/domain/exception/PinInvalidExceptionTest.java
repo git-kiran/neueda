@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class PinInvalidExceptionTest {
     @Test
     public void testUserException() {
-        try{
+        try {
             throwPinInvalidException();
         } catch (Exception exception) {
             assertEquals("Pin is incorrect", exception.getMessage());

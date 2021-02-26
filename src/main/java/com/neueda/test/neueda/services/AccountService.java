@@ -18,7 +18,7 @@ public class AccountService {
     @Autowired
     AccountRepository accountRepository;
 
-    public AccountResponse getRequest(AccountRequest accountRequest)  throws AccountBalanceException, PinInvalidException {
+    public AccountResponse getRequest(AccountRequest accountRequest) throws AccountBalanceException, PinInvalidException {
         Account account = accountRepository.findByAccountNumber(accountRequest.getAccountNumber());
         if (!Objects.nonNull(account)) {
             throw new AccountNumberNotFoundException("AccountNumber not found");

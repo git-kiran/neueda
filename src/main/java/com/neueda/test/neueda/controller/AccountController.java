@@ -27,8 +27,8 @@ public class AccountController {
 
     @PostMapping(path = "/withdraw", consumes = "application/json", produces = "application/json")
     public WithdrawResponse withdrawAmount(@Valid @RequestBody WithdrawRequest withdrawRequest) {
-        AccountRequest accountRequest = new AccountRequest(withdrawRequest.getAccountNumber() , withdrawRequest.getPin());
-        if(!Objects.nonNull(accountService.getRequest(accountRequest))){
+        AccountRequest accountRequest = new AccountRequest(withdrawRequest.getAccountNumber(), withdrawRequest.getPin());
+        if (!Objects.nonNull(accountService.getRequest(accountRequest))) {
             throw new InternalErrorException("Hello User, something went wrong, please retry with with different withdrawal amount");
         }
         return withdrawService.getWithdrawRequest(withdrawRequest);

@@ -14,6 +14,6 @@ public class AccountResponse {
     @Override
     public String toString() {
         return "Hello User, Account Balance=" + openBalance +
-                ", Maximum Withdrawal Amount=" + maxWithdrawBalance ;
+                ", Maximum Withdrawal Amount=" + maxWithdrawBalance;
     }
 }

@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MultiplesOfFiveExceptionTest {
     @Test
     public void testUserException() {
-        try{
+        try {
             throwMultiplesOfFiveException();
         } catch (Exception exception) {
             assertEquals("Hello User, Please enter withdrawal amount in multiples of five", exception.getMessage());

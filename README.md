@@ -18,7 +18,6 @@ docker run -p 8080:8080 spring-boot:neueda
 
 Pass in any arguments or support libraries using -v flag
 
-
 **Tech stack:**
 
 - Spring Boot: For creating the RESTful Web Services
@@ -28,7 +27,6 @@ Pass in any arguments or support libraries using -v flag
 - H2 as database
 - Maven for managing the project's build
 - Attached Dockerfile for building and managing the application distribution using containers
-
 
 **Usage:**
 
